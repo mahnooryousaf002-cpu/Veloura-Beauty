@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product | Veloura Beauty</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #fff8fb;
+            color: #351d28;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: #6f3c55;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* HEADER */
+        .product-header {
+            background: white;
+            border-bottom: 1px solid #eadce3;
+            padding: 22px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: #6f3c55;
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #351d28;
+            font-size: 16px;
+        }
+
+        .nav a:hover {
+            color: #8b4c68;
+        }
+
+        .cart-link {
+            background: #743f59;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        /* PRODUCT AREA */
+        .product-container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 30px;
+            color: #8b6675;
+            font-size: 15px;
+        }
+
+        .breadcrumb a {
+            color: #743f59;
+            text-decoration: none;
+        }
+
+        .product-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 65px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(90, 45, 65, 0.08);
+        }
+
+        /* IMAGE */
+        .product-image-box {
+            background: #f8edf2;
+            border-radius: 18px;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image-box img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* DETAILS */
+        .product-category {
+            color: #9a526f;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 42px;
+            line-height: 1.15;
+            margin: 0 0 18px;
+            color: #351d28;
+        }
+
+        .stars {
+            color: #b46b86;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #743f59;
+            margin: 20px 0;
+        }
+
+        .description {
+            font-family: Arial, sans-serif;
+            color: #6c5962;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        .feature-list li {
+            margin: 12px 0;
+            color: #55434b;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #8b4c68;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* QUANTITY */
+        .quantity-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            border: 1px solid #d8c0cb;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 22px;
+        }
+
+        .quantity-box button {
+            width: 42px;
+            height: 42px;
+            border: none;
+            background: #f4e6ed;
+            color: #743f59;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .quantity-box span {
+            width: 50px;
+            text-align: center;
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* BUTTONS */
+        .button-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .add-button,
+        .buy-button {
+            border: none;
+            padding: 15px 28px;
+            border-radius: 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-button {
+            background: #743f59;
+            color: white;
+        }
+
+        .buy-button {
+            background: #e7b7c9;
+            color: #351d28;
+        }
+
+        .add-button:hover {
+            background: #542d42;
+        }
+
+        .buy-button:hover {
+            background: #d99caf;
+        }
+
+        /* INFO BOXES */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .info-box {
+            background: #fff;
+            border: 1px solid #eadce3;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #743f59;
+        }
+
+        .info-box span {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #76646c;
+        }
+
+        /* RELATED */
+        .related-section {
+            margin-top: 75px;
+        }
+
+        .related-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 35px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(90, 45, 65, 0.07);
+            border: 1px solid #eadce3;
+        }
+
+        .related-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #f8edf2;
+        }
+
+        .related-info {
+            padding: 18px;
+        }
+
+        .related-info h3 {
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        .related-price {
+            color: #743f59;
+            font-weight: bold;
+            margin: 10px 0 15px;
+        }
+
+        .related-button {
+            width: 100%;
+            border: none;
+            background: #743f59;
+            color: white;
+            padding: 11px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .related-button:hover {
+            background: #542d42;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 80px;
+            background: #351d28;
+            color: white;
+            padding: 45px 7%;
+            text-align: center;
+        }
+
+        footer h2 {
+            letter-spacing: 2px;
+        }
+
+        footer p {
+            color: #e6d5dd;
+            font-family: Arial, sans-serif;
+        }
+
+        /* MOBILE */
+        @media (max-width: 850px) {
+            .product-header {
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .product-main {
+                grid-template-columns: 1fr;
+            }
+
+            .product-title {
+                font-size: 34px;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-container {
+                width: 94%;
+            }
+
+            .product-main {
+                padding: 18px;
+            }
+
+            .product-image-box,
+            .product-image-box img {
+                height: 380px;
+                min-height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        ✨ Free delivery on orders above PKR 5,000 ✨
+    </div>
+
+    <!-- HEADER -->
+    <header class="product-header">
+
+        <a href="index.html" class="logo">
+            VELOURA BEAUTY
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="makeup.html">Makeup</a>
+            <a href="skincare.html">Skincare</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="offers.html">Offers</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="cart.html" class="cart-link">
+                Cart (<span id="cart-count">0</span>)
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- PRODUCT -->
+    <main class="product-container">
+
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            &nbsp; / &nbsp;
+            <a href="makeup.html">Makeup</a>
+            &nbsp; / &nbsp;
+            Velvet Rose Lipstick
+        </div>
+
+
+        <section class="product-main">
+
+            <!-- PRODUCT IMAGE -->
+            <div class="product-image-box">
+
+                <img
+                    src="images/makeup-01.jpg"
+                    alt="Velvet Rose Lipstick"
+                    onerror="this.src='images/makeup-02.jpg';"
+                >
+
+            </div>
+
+
+            <!-- PRODUCT DETAILS -->
+            <div class="product-details">
+
+                <div class="product-category">
+                    LIPSTICK
+                </div>
+
+                <h1 class="product-title">
+                    Velvet Rose Lipstick
+                </h1>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <div class="price">
+                    Rs. 1,599
+                </div>
+
+                <p class="description">
+                    Discover the elegant Velvet Rose Lipstick from
+                    Veloura Beauty. Its smooth texture gives your lips
+                    a beautiful finish that is perfect for everyday
+                    makeup as well as special occasions.
+                </p>
+
+                <ul class="feature-list">
+                    <li>Elegant rose shade</li>
+                    <li>Smooth and comfortable texture</li>
+                    <li>Easy to apply</li>
+                    <li>Perfect for everyday makeup</li>
+                    <li>Beautiful Veloura Beauty packaging</li>
+                </ul>
+
+
+                <!-- QUANTITY -->
+                <div class="quantity-title">
+                    Quantity
+                </div>
+
+                <div class="quantity-box">
+
+                    <button type="button" onclick="decreaseQuantity()">
+                        −
+                    </button>
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+                    <button type="button" onclick="increaseQuantity()">
+                        +
+                    </button>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        class="add-button"
+                        onclick="addProductToCart()"
+                    >
+                        Add to Cart
+                    </button>
+
+                    <button
+                        type="button"
+                        class="buy-button"
+                        onclick="buyNow()"
+                    >
+                        Buy Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+        <div class="info-grid">
+
+            <div class="info-box">
+                <strong>🚚 Fast Delivery</strong>
+                <span>Delivery available across Pakistan.</span>
+            </div>
+
+            <div class="info-box">
+                <strong>💳 Easy Payment</strong>
+                <span>Cash on Delivery available.</span>
+            </div>
+
+            <div class="info-box">
+                <strong>✨ Veloura Quality</strong>
+                <span>Beautiful products for your beauty routine.</span>
+            </div>
+
+        </div>
+
+
+        <!-- RELATED PRODUCTS -->
+        <section class="related-section">
+
+            <h2>
+                You May Also Like
+            </h2>
+
+            <div class="related-grid">
+
+
+                <!-- PRODUCT 1 -->
+                <div class="related-card">
+
+                    <img
+                        src="images/makeup-02.jpg"
+                        alt="Nude Dream Lipstick"
+                    >
+
+                    <div class="related-info">
+
+                        <h3>
+                            Nude Dream Lipstick
+                        </h3>
+
+                        <div class="related-price">
+                            Rs. 1,699
+                        </div>
+
+                        <button
+                            class="related-button"
+                            onclick="addToCart('Nude Dream Lipstick',1699,'images/makeup-02.jpg')"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 2 -->
+                <div class="related-card">
+
+                    <img
+                        src="images/makeup-03.jpg"
+                        alt="Berry Kiss Lipstick"
+                    >
+
+                    <div class="related-info">
+
+                        <h3>
+                            Berry Kiss Lipstick
+                        </h3>
+
+                        <div class="related-price">
+                            Rs. 1,799
+                        </div>
+
+                        <button
+                            class="related-button"
+                            onclick="addToCart('Berry Kiss Lipstick',1799,'images/makeup-03.jpg')"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 3 -->
+                <div class="related-card">
+
+                    <img
+                        src="images/makeup-04.jpg"
+                        alt="Classic Ruby Lipstick"
+                    >
+
+                    <div class="related-info">
+
+                        <h3>
+                            Classic Ruby Lipstick
+                        </h3>
+
+                        <div class="related-price">
+                            Rs. 1,899
+                        </div>
+
+                        <button
+                            class="related-button"
+                            onclick="addToCart('Classic Ruby Lipstick',1899,'images/makeup-04.jpg')"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PRODUCT 4 -->
+                <div class="related-card">
+
+                    <img
+                        src="images/makeup-05.jpg"
+                        alt="Crystal Shine Lip Gloss"
+                    >
+
+                    <div class="related-info">
+
+                        <h3>
+                            Crystal Shine Lip Gloss
+                        </h3>
+
+                        <div class="related-price">
+                            Rs. 1,499
+                        </div>
+
+                        <button
+                            class="related-button"
+                            onclick="addToCart('Crystal Shine Lip Gloss',1499,'images/makeup-05.jpg')"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>
+            VELOURA BEAUTY
+        </h2>
+
+        <p>
+            Your beauty, your confidence.
+        </p>
+
+        <p>
+            © 2026 Veloura Beauty. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- EXISTING CART SYSTEM -->
+    <script src="script.js"></script>
+
+
+    <!-- PRODUCT PAGE FUNCTIONS -->
+    <script>
+
+        let quantity = 1;
+
+
+        function increaseQuantity() {
+
+            quantity++;
+
+            document.getElementById("quantity").textContent = quantity;
+
+        }
+
+
+        function decreaseQuantity() {
+
+            if (quantity > 1) {
+
+                quantity--;
+
+                document.getElementById("quantity").textContent = quantity;
+
+            }
+
+        }
+
+
+        function addProductToCart() {
+
+            for (let i = 0; i < quantity; i++) {
+
+                addToCart(
+                    "Velvet Rose Lipstick",
+                    1599,
+                    "images/makeup-01.jpg"
+                );
+
+            }
+
+        }
+
+
+        function buyNow() {
+
+            addProductToCart();
+
+            setTimeout(function() {
+
+                window.location.href = "checkout.html";
+
+            }, 300);
+
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+            if (typeof updateCartCount === "function") {
+
+                updateCartCount();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

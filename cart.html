@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Makeup Collection | Veloura Beauty</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #fff8fb;
+            color: #351c27;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background: #6f3d55;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            border-bottom: 1px solid #eadce2;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #6f3d55;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #351c27;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #9a5876;
+        }
+
+        .cart-link {
+            background: #7a405d;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+
+        .cart-link:hover {
+            background: #542d40;
+        }
+
+        /* HERO */
+        .makeup-hero {
+            text-align: center;
+            padding: 75px 20px 50px;
+            background: linear-gradient(180deg, #fff8fb, #fdf1f6);
+        }
+
+        .makeup-hero .small-title {
+            color: #9a5876;
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .makeup-hero h1 {
+            font-size: 52px;
+            color: #351c27;
+            margin-bottom: 15px;
+        }
+
+        .makeup-hero p {
+            color: #765965;
+            font-size: 18px;
+        }
+
+        /* PRODUCTS */
+        .products-section {
+            width: 90%;
+            max-width: 1400px;
+            margin: 50px auto 80px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #eadce2;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(91, 44, 65, 0.08);
+            transition: 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(91, 44, 65, 0.15);
+        }
+
+        .product-image {
+            height: 285px;
+            background: #f9edf3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .category {
+            color: #a45d7d;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            line-height: 1.3;
+            min-height: 52px;
+            margin-bottom: 15px;
+            color: #351c27;
+        }
+
+        .price {
+            color: #7a405d;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .add-cart {
+            width: 100%;
+            border: none;
+            background: #7a405d;
+            color: white;
+            padding: 13px;
+            border-radius: 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #542d40;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #351c27;
+            color: white;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .footer-brand h2 {
+            font-size: 28px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #e5cfd9;
+            line-height: 1.7;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 18px;
+            font-size: 18px;
+        }
+
+        .footer-column a {
+            display: block;
+            text-decoration: none;
+            color: #e5cfd9;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #63404f;
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #d9bdc9;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .navbar {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .makeup-hero h1 {
+                font-size: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .makeup-hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        ✨ Free Delivery on Orders Above PKR 5,000 ✨
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            VELOURA BEAUTY
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="makeup.html">Makeup</a>
+            <a href="skincare.html">Skincare</a>
+            <a href="new-arrivals.html">New Arrivals</a>
+            <a href="offers.html">Offers</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+
+            <a href="cart.html" class="cart-link">
+                Cart (<span id="cart-count">0</span>)
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- MAKEUP HERO -->
+    <section class="makeup-hero">
+
+        <div class="small-title">
+            VELOURA BEAUTY
+        </div>
+
+        <h1>
+            Makeup Collection
+        </h1>
+
+        <p>
+            Discover beautiful makeup essentials created for your everyday beauty routine.
+        </p>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="products-section">
+
+        <div class="products-grid">
+
+
+            <!-- PRODUCT 01 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-01.jpg" alt="Velvet Rose Lipstick">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIPSTICK</span>
+                    <h3>Velvet Rose Lipstick</h3>
+                    <div class="price">Rs. 1,599</div>
+                    <button class="add-cart" onclick="addProduct('Velvet Rose Lipstick',1599,'images/makeup-01.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 02 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-02.jpg" alt="Nude Dream Lipstick">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIPSTICK</span>
+                    <h3>Nude Dream Lipstick</h3>
+                    <div class="price">Rs. 1,699</div>
+                    <button class="add-cart" onclick="addProduct('Nude Dream Lipstick',1699,'images/makeup-02.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 03 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-03.jpg" alt="Berry Kiss Lipstick">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIPSTICK</span>
+                    <h3>Berry Kiss Lipstick</h3>
+                    <div class="price">Rs. 1,799</div>
+                    <button class="add-cart" onclick="addProduct('Berry Kiss Lipstick',1799,'images/makeup-03.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 04 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-04.jpg" alt="Classic Ruby Lipstick">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIPSTICK</span>
+                    <h3>Classic Ruby Lipstick</h3>
+                    <div class="price">Rs. 1,899</div>
+                    <button class="add-cart" onclick="addProduct('Classic Ruby Lipstick',1899,'images/makeup-04.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 05 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-05.jpg" alt="Crystal Shine Lip Gloss">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIP GLOSS</span>
+                    <h3>Crystal Shine Lip Gloss</h3>
+                    <div class="price">Rs. 1,299</div>
+                    <button class="add-cart" onclick="addProduct('Crystal Shine Lip Gloss',1299,'images/makeup-05.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 06 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-06.jpg" alt="Rose Lip Tint">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIP TINT</span>
+                    <h3>Rose Lip Tint</h3>
+                    <div class="price">Rs. 1,199</div>
+                    <button class="add-cart" onclick="addProduct('Rose Lip Tint',1199,'images/makeup-06.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 07 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-07.jpg" alt="Velvet Lip Liner">
+                </div>
+                <div class="product-info">
+                    <span class="category">LIP LINER</span>
+                    <h3>Velvet Lip Liner</h3>
+                    <div class="price">Rs. 899</div>
+                    <button class="add-cart" onclick="addProduct('Velvet Lip Liner',899,'images/makeup-07.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 08 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-08.jpg" alt="Radiant Liquid Foundation">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Radiant Liquid Foundation</h3>
+                    <div class="price">Rs. 2,499</div>
+                    <button class="add-cart" onclick="addProduct('Radiant Liquid Foundation',2499,'images/makeup-08.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 09 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-09.jpg" alt="Soft Matte Foundation">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Soft Matte Foundation</h3>
+                    <div class="price">Rs. 2,399</div>
+                    <button class="add-cart" onclick="addProduct('Soft Matte Foundation',2399,'images/makeup-09.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 10 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-10.jpg" alt="Bright Touch Concealer">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Bright Touch Concealer</h3>
+                    <div class="price">Rs. 1,499</div>
+                    <button class="add-cart" onclick="addProduct('Bright Touch Concealer',1499,'images/makeup-10.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 11 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-11.jpg" alt="Natural Finish BB Cream">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Natural Finish BB Cream</h3>
+                    <div class="price">Rs. 1,699</div>
+                    <button class="add-cart" onclick="addProduct('Natural Finish BB Cream',1699,'images/makeup-11.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 12 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-12.jpg" alt="Airbrush Setting Powder">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Airbrush Setting Powder</h3>
+                    <div class="price">Rs. 1,399</div>
+                    <button class="add-cart" onclick="addProduct('Airbrush Setting Powder',1399,'images/makeup-12.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 13 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-13.jpg" alt="Soft Petal Blush">
+                </div>
+                <div class="product-info">
+                    <span class="category">CHEEKS</span>
+                    <h3>Soft Petal Blush</h3>
+                    <div class="price">Rs. 1,299</div>
+                    <button class="add-cart" onclick="addProduct('Soft Petal Blush',1299,'images/makeup-13.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 14 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-14.jpg" alt="Sun Kissed Bronzer">
+                </div>
+                <div class="product-info">
+                    <span class="category">CHEEKS</span>
+                    <h3>Sun Kissed Bronzer</h3>
+                    <div class="price">Rs. 1,599</div>
+                    <button class="add-cart" onclick="addProduct('Sun Kissed Bronzer',1599,'images/makeup-14.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 15 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-15.jpg" alt="Golden Glow Highlighter">
+                </div>
+                <div class="product-info">
+                    <span class="category">HIGHLIGHTER</span>
+                    <h3>Golden Glow Highlighter</h3>
+                    <div class="price">Rs. 1,499</div>
+                    <button class="add-cart" onclick="addProduct('Golden Glow Highlighter',1499,'images/makeup-15.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 16 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-16.jpg" alt="Sculpt and Define Contour">
+                </div>
+                <div class="product-info">
+                    <span class="category">CONTOUR</span>
+                    <h3>Sculpt &amp; Define Contour</h3>
+                    <div class="price">Rs. 1,599</div>
+                    <button class="add-cart" onclick="addProduct('Sculpt & Define Contour',1599,'images/makeup-16.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 17 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-17.jpg" alt="Rose Glow Eyeshadow Palette">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Rose Glow Eyeshadow Palette</h3>
+                    <div class="price">Rs. 2,199</div>
+                    <button class="add-cart" onclick="addProduct('Rose Glow Eyeshadow Palette',2199,'images/makeup-17.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 18 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-18.jpg" alt="Nude Harmony Eyeshadow Palette">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Nude Harmony Eyeshadow Palette</h3>
+                    <div class="price">Rs. 2,299</div>
+                    <button class="add-cart" onclick="addProduct('Nude Harmony Eyeshadow Palette',2299,'images/makeup-18.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 19 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-19.jpg" alt="Sunset Eyeshadow Palette">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Sunset Eyeshadow Palette</h3>
+                    <div class="price">Rs. 2,399</div>
+                    <button class="add-cart" onclick="addProduct('Sunset Eyeshadow Palette',2399,'images/makeup-19.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 20 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-20.jpg" alt="Midnight Volume Mascara">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Midnight Volume Mascara</h3>
+                    <div class="price">Rs. 1,199</div>
+                    <button class="add-cart" onclick="addProduct('Midnight Volume Mascara',1199,'images/makeup-20.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 21 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-21.jpg" alt="Perfect Line Eyeliner">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Perfect Line Eyeliner</h3>
+                    <div class="price">Rs. 999</div>
+                    <button class="add-cart" onclick="addProduct('Perfect Line Eyeliner',999,'images/makeup-21.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 22 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-22.jpg" alt="Classic Kajal">
+                </div>
+                <div class="product-info">
+                    <span class="category">EYES</span>
+                    <h3>Classic Kajal</h3>
+                    <div class="price">Rs. 799</div>
+                    <button class="add-cart" onclick="addProduct('Classic Kajal',799,'images/makeup-22.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 23 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-23.jpg" alt="Brow Define Pencil">
+                </div>
+                <div class="product-info">
+                    <span class="category">BROWS</span>
+                    <h3>Brow Define Pencil</h3>
+                    <div class="price">Rs. 899</div>
+                    <button class="add-cart" onclick="addProduct('Brow Define Pencil',899,'images/makeup-23.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 24 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-24.jpg" alt="Brow Styling Gel">
+                </div>
+                <div class="product-info">
+                    <span class="category">BROWS</span>
+                    <h3>Brow Styling Gel</h3>
+                    <div class="price">Rs. 1,099</div>
+                    <button class="add-cart" onclick="addProduct('Brow Styling Gel',1099,'images/makeup-24.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 25 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-25.jpg" alt="Glow Face Primer">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Glow Face Primer</h3>
+                    <div class="price">Rs. 1,899</div>
+                    <button class="add-cart" onclick="addProduct('Glow Face Primer',1899,'images/makeup-25.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 26 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-26.jpg" alt="Longwear Setting Spray">
+                </div>
+                <div class="product-info">
+                    <span class="category">FACE</span>
+                    <h3>Longwear Setting Spray</h3>
+                    <div class="price">Rs. 1,799</div>
+                    <button class="add-cart" onclick="addProduct('Longwear Setting Spray',1799,'images/makeup-26.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 27 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-27.jpg" alt="Velvet Makeup Sponge">
+                </div>
+                <div class="product-info">
+                    <span class="category">TOOLS</span>
+                    <h3>Velvet Makeup Sponge</h3>
+                    <div class="price">Rs. 699</div>
+                    <button class="add-cart" onclick="addProduct('Velvet Makeup Sponge',699,'images/makeup-27.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 28 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-28.jpg" alt="Luxe Foundation Brush">
+                </div>
+                <div class="product-info">
+                    <span class="category">TOOLS</span>
+                    <h3>Luxe Foundation Brush</h3>
+                    <div class="price">Rs. 1,299</div>
+                    <button class="add-cart" onclick="addProduct('Luxe Foundation Brush',1299,'images/makeup-28.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 29 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-29.jpg" alt="Precision Eye Brush">
+                </div>
+                <div class="product-info">
+                    <span class="category">TOOLS</span>
+                    <h3>Precision Eye Brush</h3>
+                    <div class="price">Rs. 899</div>
+                    <button class="add-cart" onclick="addProduct('Precision Eye Brush',899,'images/makeup-29.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 30 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/makeup-30.jpg" alt="Complete Glam Makeup Kit">
+                </div>
+                <div class="product-info">
+                    <span class="category">MAKEUP KIT</span>
+                    <h3>Complete Glam Makeup Kit</h3>
+                    <div class="price">Rs. 4,999</div>
+                    <button class="add-cart" onclick="addProduct('Complete Glam Makeup Kit',4999,'images/makeup-30.jpg')">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <h2>VELOURA BEAUTY</h2>
+                <p>
+                    Discover makeup and beauty essentials designed
+                    to make your everyday beauty routine feel special.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="makeup.html">Makeup</a>
+                <a href="skincare.html">Skincare</a>
+                <a href="new-arrivals.html">New Arrivals</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Information</h3>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="offers.html">Offers</a>
+                <a href="cart.html">Shopping Cart</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Veloura Beauty. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- CART SYSTEM -->
+    <script>
+
+        function getCart() {
+            return JSON.parse(localStorage.getItem("velouraCart")) || [];
+        }
+
+
+        function saveCart(cart) {
+            localStorage.setItem("velouraCart", JSON.stringify(cart));
+        }
+
+
+        function updateCartCount() {
+
+            const cart = getCart();
+
+            let total = 0;
+
+            cart.forEach(function(item) {
+                total += item.quantity || 1;
+            });
+
+            const cartCount = document.getElementById("cart-count");
+
+            if (cartCount) {
+                cartCount.textContent = total;
+            }
+        }
+
+
+        function addProduct(name, price, image) {
+
+            let cart = getCart();
+
+            const existingProduct = cart.find(function(item) {
+                return item.name === name;
+            });
+
+
+            if (existingProduct) {
+
+                existingProduct.quantity =
+                    (existingProduct.quantity || 1) + 1;
+
+            } else {
+
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+
+            }
+
+
+            saveCart(cart);
+
+            updateCartCount();
+
+
+            /*
+                Product cart mein add hone ke baad
+                automatically cart.html open hoga.
+            */
+
+            window.location.href = "cart.html";
+        }
+
+
+        updateCartCount();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skincare | Veloura Beauty</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        .skincare-page {
+            padding: 70px 6%;
+        }
+
+        .skincare-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .skincare-heading p {
+            font-size: 13px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .skincare-heading h1 {
+            font-size: 45px;
+            margin: 12px 0;
+        }
+
+        .skincare-heading span {
+            color: #666;
+        }
+
+        .skincare-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .skincare-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .skincare-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .skincare-image {
+            height: 270px;
+            background: #eef3ef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .skincare-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .skincare-info {
+            padding: 20px;
+        }
+
+        .skincare-category {
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: #777;
+        }
+
+        .skincare-info h3 {
+            font-size: 18px;
+            margin: 9px 0;
+        }
+
+        .skincare-price {
+            font-weight: bold;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .skincare-add-btn {
+            width: 100%;
+            padding: 12px;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .skincare-add-btn:hover {
+            background: #333;
+        }
+
+        @media (max-width: 1000px) {
+
+            .skincare-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 750px) {
+
+            .skincare-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .skincare-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skincare-heading h1 {
+                font-size: 35px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        Free shipping on orders over $50
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Veloura Beauty
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="shop.html">Shop</a></li>
+
+            <li><a href="makeup.html">Makeup</a></li>
+
+            <li><a href="skincare.html">Skincare</a></li>
+
+            <li><a href="new-arrivals.html">New Arrivals</a></li>
+
+            <li><a href="offers.html">Offers</a></li>
+
+            <li><a href="about.html">About</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+
+        <div class="nav-icons">
+
+            <span>🔍</span>
+
+            <a href="cart.html">
+                🛒 <span id="cart-count">0</span>
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- SKINCARE PAGE -->
+
+    <main class="skincare-page">
+
+
+        <div class="skincare-heading">
+
+            <p>VELOURA BEAUTY</p>
+
+            <h1>Skincare Collection</h1>
+
+            <span>
+                Gentle and beautiful skincare essentials for your daily routine.
+            </span>
+
+        </div>
+
+
+        <div class="skincare-grid">
+
+
+            <!-- 01 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+
+                    <img src="images/skincare-01.jpg"
+                         alt="Gentle Daily Cleanser">
+
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">
+                        CLEANSER
+                    </small>
+
+                    <h3>Gentle Daily Cleanser</h3>
+
+                    <div class="skincare-price">$18.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Gentle Daily Cleanser',18,'images/skincare-01.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 02 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-02.jpg"
+                         alt="Hydrating Face Wash">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">CLEANSER</small>
+
+                    <h3>Hydrating Face Wash</h3>
+
+                    <div class="skincare-price">$19.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Hydrating Face Wash',19,'images/skincare-02.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 03 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-03.jpg"
+                         alt="Deep Clean Gel">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">CLEANSER</small>
+
+                    <h3>Deep Clean Gel</h3>
+
+                    <div class="skincare-price">$20.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Deep Clean Gel',20,'images/skincare-03.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 04 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-04.jpg"
+                         alt="Purifying Foam Cleanser">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">CLEANSER</small>
+
+                    <h3>Purifying Foam Cleanser</h3>
+
+                    <div class="skincare-price">$21.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Purifying Foam Cleanser',21,'images/skincare-04.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 05 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-05.jpg"
+                         alt="Rose Water Toner">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">TONER</small>
+
+                    <h3>Rose Water Toner</h3>
+
+                    <div class="skincare-price">$17.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Rose Water Toner',17,'images/skincare-05.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 06 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-06.jpg"
+                         alt="Hydrating Glow Toner">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">TONER</small>
+
+                    <h3>Hydrating Glow Toner</h3>
+
+                    <div class="skincare-price">$22.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Hydrating Glow Toner',22,'images/skincare-06.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 07 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-07.jpg"
+                         alt="Vitamin C Serum">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SERUM</small>
+
+                    <h3>Vitamin C Serum</h3>
+
+                    <div class="skincare-price">$29.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Vitamin C Serum',29,'images/skincare-07.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 08 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-08.jpg"
+                         alt="Hyaluronic Acid Serum">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SERUM</small>
+
+                    <h3>Hyaluronic Acid Serum</h3>
+
+                    <div class="skincare-price">$31.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Hyaluronic Acid Serum',31,'images/skincare-08.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 09 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-09.jpg"
+                         alt="Niacinamide Serum">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SERUM</small>
+
+                    <h3>Niacinamide Serum</h3>
+
+                    <div class="skincare-price">$28.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Niacinamide Serum',28,'images/skincare-09.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 10 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-10.jpg"
+                         alt="Brightening Serum">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SERUM</small>
+
+                    <h3>Brightening Serum</h3>
+
+                    <div class="skincare-price">$30.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Brightening Serum',30,'images/skincare-10.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 11 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-11.jpg"
+                         alt="Overnight Repair Serum">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SERUM</small>
+
+                    <h3>Overnight Repair Serum</h3>
+
+                    <div class="skincare-price">$33.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Overnight Repair Serum',33,'images/skincare-11.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 12 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-12.jpg"
+                         alt="Daily Hydration Moisturizer">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">MOISTURIZER</small>
+
+                    <h3>Daily Hydration Moisturizer</h3>
+
+                    <div class="skincare-price">$26.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Daily Hydration Moisturizer',26,'images/skincare-12.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 13 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-13.jpg"
+                         alt="Dewy Face Cream">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">MOISTURIZER</small>
+
+                    <h3>Dewy Face Cream</h3>
+
+                    <div class="skincare-price">$25.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Dewy Face Cream',25,'images/skincare-13.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 14 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-14.jpg"
+                         alt="Night Repair Cream">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">MOISTURIZER</small>
+
+                    <h3>Night Repair Cream</h3>
+
+                    <div class="skincare-price">$32.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Night Repair Cream',32,'images/skincare-14.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 15 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-15.jpg"
+                         alt="Lightweight Gel Moisturizer">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">MOISTURIZER</small>
+
+                    <h3>Lightweight Gel Moisturizer</h3>
+
+                    <div class="skincare-price">$24.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Lightweight Gel Moisturizer',24,'images/skincare-15.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 16 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-16.jpg"
+                         alt="SPF 50 Daily Sunscreen">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SUNSCREEN</small>
+
+                    <h3>SPF 50 Daily Sunscreen</h3>
+
+                    <div class="skincare-price">$27.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('SPF 50 Daily Sunscreen',27,'images/skincare-16.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 17 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-17.jpg"
+                         alt="Invisible Sunscreen Gel">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SUNSCREEN</small>
+
+                    <h3>Invisible Sunscreen Gel</h3>
+
+                    <div class="skincare-price">$29.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Invisible Sunscreen Gel',29,'images/skincare-17.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 18 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-18.jpg"
+                         alt="Mineral Face Sunscreen">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">SUNSCREEN</small>
+
+                    <h3>Mineral Face Sunscreen</h3>
+
+                    <div class="skincare-price">$28.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Mineral Face Sunscreen',28,'images/skincare-18.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 19 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-19.jpg"
+                         alt="Rose Clay Face Mask">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">FACE MASK</small>
+
+                    <h3>Rose Clay Face Mask</h3>
+
+                    <div class="skincare-price">$23.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Rose Clay Face Mask',23,'images/skincare-19.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 20 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-20.jpg"
+                         alt="Hydrating Face Mask">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">FACE MASK</small>
+
+                    <h3>Hydrating Face Mask</h3>
+
+                    <div class="skincare-price">$24.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Hydrating Face Mask',24,'images/skincare-20.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 21 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-21.jpg"
+                         alt="Purifying Clay Mask">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">FACE MASK</small>
+
+                    <h3>Purifying Clay Mask</h3>
+
+                    <div class="skincare-price">$22.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Purifying Clay Mask',22,'images/skincare-21.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 22 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-22.jpg"
+                         alt="Gentle Face Scrub">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">EXFOLIATOR</small>
+
+                    <h3>Gentle Face Scrub</h3>
+
+                    <div class="skincare-price">$19.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Gentle Face Scrub',19,'images/skincare-22.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 23 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-23.jpg"
+                         alt="Enzyme Exfoliating Treatment">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">EXFOLIATOR</small>
+
+                    <h3>Enzyme Exfoliating Treatment</h3>
+
+                    <div class="skincare-price">$28.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Enzyme Exfoliating Treatment',28,'images/skincare-23.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 24 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-24.jpg"
+                         alt="Eye Renewal Cream">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">EYE CARE</small>
+
+                    <h3>Eye Renewal Cream</h3>
+
+                    <div class="skincare-price">$30.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Eye Renewal Cream',30,'images/skincare-24.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 25 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-25.jpg"
+                         alt="Cooling Under-Eye Gel">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">EYE CARE</small>
+
+                    <h3>Cooling Under-Eye Gel</h3>
+
+                    <div class="skincare-price">$26.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Cooling Under-Eye Gel',26,'images/skincare-25.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 26 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-26.jpg"
+                         alt="Nourishing Face Oil">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">FACE OIL</small>
+
+                    <h3>Nourishing Face Oil</h3>
+
+                    <div class="skincare-price">$34.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Nourishing Face Oil',34,'images/skincare-26.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 27 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-27.jpg"
+                         alt="Cleansing Balm">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">CLEANSER</small>
+
+                    <h3>Cleansing Balm</h3>
+
+                    <div class="skincare-price">$25.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Cleansing Balm',25,'images/skincare-27.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 28 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-28.jpg"
+                         alt="Overnight Sleeping Mask">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">NIGHT CARE</small>
+
+                    <h3>Overnight Sleeping Mask</h3>
+
+                    <div class="skincare-price">$29.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Overnight Sleeping Mask',29,'images/skincare-28.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 29 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-29.jpg"
+                         alt="Hydrating Lip Balm">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">LIP CARE</small>
+
+                    <h3>Hydrating Lip Balm</h3>
+
+                    <div class="skincare-price">$12.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Hydrating Lip Balm',12,'images/skincare-29.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- 30 -->
+
+            <div class="skincare-card">
+
+                <div class="skincare-image">
+                    <img src="images/skincare-30.jpg"
+                         alt="Glow Skincare Gift Set">
+                </div>
+
+                <div class="skincare-info">
+
+                    <small class="skincare-category">GIFT SET</small>
+
+                    <h3>Glow Skincare Gift Set</h3>
+
+                    <div class="skincare-price">$59.00</div>
+
+                    <button
+                        class="skincare-add-btn"
+                        onclick="addToCart('Glow Skincare Gift Set',59,'images/skincare-30.jpg')">
+                        Add to Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-column">
+
+                <h2 class="footer-logo">
+                    Veloura Beauty
+                </h2>
+
+                <p>
+                    Discover beauty products created to bring
+                    confidence, elegance and everyday beauty
+                    into your routine.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Quick Links</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="shop.html">Shop</a>
+
+                <a href="makeup.html">Makeup</a>
+
+                <a href="skincare.html">Skincare</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Customer Care</h3>
+
+                <a href="about.html">About Us</a>
+
+                <a href="contact.html">Contact Us</a>
+
+                <a href="cart.html">Shopping Cart</a>
+
+                <a href="checkout.html">Checkout</a>
+
+            </div>
+
+
+            <div class="footer-column footer-newsletter">
+
+                <h3>Join Our Newsletter</h3>
+
+                <p>
+                    Subscribe for beauty tips,
+                    new products and special offers.
+                </p>
+
+                <form onsubmit="subscribeNewsletter(event)">
+
+                    <input
+                        type="email"
+                        placeholder="Your email address"
+                        required
+                    >
+
+                    <button type="submit">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Veloura Beauty.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html><style>
+.product-card img {
+    display: none !important;
+}
+
+.product-card {
+    padding-top: 30px;
+}
+
+.product-card .product-info {
+    padding-top: 20px;
+}
+</style>
